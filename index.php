@@ -13,7 +13,9 @@ if ($conn) {
 } else {
     echo "Error : Not connected to the $db database";
 }
-
+?>
+<a href="./pages/signUp.php">S'enregistrer</a></br>
+<?php
 // récupérer une ligne dans user
 //$result1 = mysqli_query($conn, "SELECT * FROM user WHERE id =2");
 

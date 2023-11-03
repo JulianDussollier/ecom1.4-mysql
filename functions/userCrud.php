@@ -9,7 +9,7 @@ On récupère les fonction sde type CRUD dans userCrud pour les regrouper et les
 /**
  * Create user 
  * 
-  */
+ */
 function createUser(array $data)
 {
     global $conn;
@@ -47,7 +47,7 @@ function createUser(array $data)
 }
 /**
  * Get all
-  */
+ */
 function getAllUsers()
 {
     global $conn;
@@ -71,8 +71,8 @@ function getAllUsers()
 }
 
 /**
- * Get all
-  */
+ * Get user by id
+ */
 function getUserById(int $id)
 {
     global $conn;
@@ -84,8 +84,47 @@ function getUserById(int $id)
     return $data;
 }
 /**
+ * Get user by Name
+ */
+function getUserByName(string $user_name)
+{
+    global $conn;
+    /* $query = "SELECT * 
+                FROM user
+                WHERE user.user_name = ?;";
+
+    if ($stmt = mysqli_prepare($conn, $query)) {
+
+        mysqli_stmt_bind_param(
+            $stmt,
+            "s",
+            $user_name,
+        );
+
+        // Exécution de la requête 
+        mysqli_stmt_execute($stmt);
+
+        // bind result variables 
+        mysqli_stmt_bind_result($stmt, $user_name);
+
+        // fetch value 
+        mysqli_stmt_fetch($stmt); 
+        
+    }*/
+
+    $query = "SELECT * FROM user WHERE user.user_name = '" . $user_name."';";
+
+    var_dump($query);
+    $result = mysqli_query($conn, $query);
+
+        // avec fetch row : tableau indexé
+        $data = mysqli_fetch_assoc($result);
+        return $data;
+}
+
+/**
  * Update user
-  */
+ */
 function updateUser(array $data)
 {
     global $conn;
@@ -110,7 +149,7 @@ function updateUser(array $data)
 }
 /**
  * Delete user
-  */
+ */
 function deleteUser(int $id)
 {
     global $conn;

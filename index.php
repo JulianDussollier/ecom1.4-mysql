@@ -1,7 +1,8 @@
 <?php
 require_once ('functions/functions.php');
 require_once "functions/userCrud.php";
-$server = 'localhost';
+require_once "./config/connexion.php";
+/* $server = 'localhost';
 $userName = "root";
 $pwd = "";
 $db = "ecom1";
@@ -10,9 +11,11 @@ $conn = mysqli_connect($server, $userName, $pwd, $db);
 if ($conn) {
     echo "Connected to the $db database successfully";
     global $conn;
+    session_start();
+    $_SESSION['connexion']= $conn;
 } else {
     echo "Error : Not connected to the $db database";
-}
+} */
 ?>
 <a href="./pages/signUp.php">S'enregistrer</a></br>
 <?php
@@ -210,13 +213,13 @@ $data8 = [
     'pwd'=>''
 ];
 
-updateUser($data8);
+//updateUser($data8);
 
-$users = getAllUsersAssoc();
+//$users = getAllUsersAssoc();
 
 
 
-deleteUser(6);
+//deleteUser(6);
 
 
 

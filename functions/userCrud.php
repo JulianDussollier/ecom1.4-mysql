@@ -13,6 +13,8 @@ On récupère les fonction sde type CRUD dans userCrud pour les regrouper et les
 function createUser(array $data)
 {
     global $conn;
+    //session_start();
+    //$conn = $_SESSION['connexion'];
     /**
      * Création du'une requete SQL préparée 
      * en vue  d'une insertion 
@@ -46,7 +48,7 @@ function createUser(array $data)
 /**
  * Get all
   */
-function getAllUser()
+function getAllUsers()
 {
     global $conn;
     $result = mysqli_query($conn, "SELECT * FROM user");
